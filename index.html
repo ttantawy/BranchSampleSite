@@ -4,6 +4,33 @@
 <script src="js/jquery-2.1.4.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="branchsample.js"></script>
+<script type="text/javascript">
+
+    (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode banner closeBanner creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode".split(" "), 0);
+
+    branch.init('key_live_hfBflnbiUgeSmTwa7W7jbiddzEdJgp6f', function(err, data) {
+        // callback to handle err or data
+        console.log(data)
+        branch.banner(
+        {
+          icon: 'https://res.cloudinary.com/hrscywv4p/image/upload/c_limit,h_1440,w_720,f_auto/ecdl2ykvex3da5avzhz0.png',
+          title: 'Pixie Scientific',
+          description: 'Pixie Scientific app!',
+          openAppButtonText: 'Open',
+          downloadAppButtonText: 'Get',
+          reviewCount: 1000, // Review count
+          rating: 5, // Average rating from 0 to 5 in increments of .5
+          iframe: true, // Show banner in an iframe if CSS on your page is conflicting
+          showMobile: true, // true by default, just set here for an example
+          showDesktop: true, // true by default, just set here for an example
+          disableHide: false, // false by default, just set here for an example
+          forgetHide: false // false by default, just set here for an example
+        }, // Banner Options
+        data // Link data or string of link
+      );
+    });
+
+</script>
 <link href="css/bootstrap.css" rel="stylesheet">
 <link href="branchsample.css" rel="stylesheet">
 
