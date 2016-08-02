@@ -48,6 +48,33 @@
       });
     });
 
+  function getDeeplink () {
+    $.ajax({
+      url: "https://api.branch.io/v1/url",
+      type: "POST",
+      headers: {
+          'Access-Control-Allow-Origin': '*'
+      },
+      data: {"branch_key":"key_live_hfBflnbiUgeSmTwa7W7jbiddzEdJgp6f"},
+      dataType: "JSONP",
+      contentType: "application/json",
+      success: onSuccess,
+      failure: onFailure,
+      complete: onComplete
+    });
+  };
+
+  function onSuccess (data) {
+    $('.response').html(data["url"]);
+  };
+
+  function onFailure (data) {
+    console.log("fail");
+  };
+
+  function onComplete (data){
+    console.log("done");
+  };
 </script>
 <title>Pixie Scientific</title>
 
@@ -68,8 +95,21 @@
     <section>
       <div class="row col-lg-8 col-lg-offset-2">
         <div class="group">
-          <button class="btn btn-info" onclick="branch.deepviewCta()" >Deeplink</button>
+        <h4>Standard Deeplink</h4>
+          <button class="btn btn-info" onclick="branch.deepviewCta()">Go!</button>
         </div>
+      </div>
+    </section>
+    <section>
+      <div class="row col-lg-8 col-lg-offset-2">
+        <div class="group">
+         <h4>Custom Deepview Link</h4>
+          <button class="btn btn-info" onclick="getDeeplink()">Generate</button>
+        </div>
+      </div>
+      <div class="row col-lg-8 col-lg-offset-2">
+        <h5>Response:</h5>
+        <pre class="response">Click the button!</pre>
       </div>
     </section>
   </div>
