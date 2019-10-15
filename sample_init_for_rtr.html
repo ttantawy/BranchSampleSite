@@ -1,0 +1,25 @@
+branch.init('key_live_gchnKkd3l3m9YBPP2d73jmfejkcgVjgM', {
+  'no_journeys': true
+});
+//this is just a fake check for which page in the session the user is at
+if (window.history.length < 3) {
+  //if it's less than the critical number, show whatever regular banner should show
+  branch.track('pageview');
+} else {
+  //if it's past the critical number, show the specific full page interstitial
+  branch.track('pageview', null, {'branch_view_id': '394166450845042691'});
+}
+
+
+Tarek from Branch will be discussing the tech behind Branch's industry-leading deep linking platform. Tarek will walk the audience through how Branch's direct and deferred deep linking works as well as what it takes to get Branch set up for an iOS app. Tarek will do an on-site demo of the SDK integration process.
+
+original_branch_link = ‘bp.mlb.com/buytickets?';
+added_kv_pairs = 'homeTeamId=158&schedule_Id=492462&flow=tmobile&venueId=32&season=2017';
+desktop_url_string = uriEncode(‘http://purchase.tickets.com/buy/MLBEventInfo?orgid=4&agency=MLB&pid=8354011&tfl=Milwaukee_Brewers-Tickets-Single_Game_Tickets-na-x0');
+final_link = original_branch_link + added_kv_pairs + ;
+
+
+deeplink_path_string = uriEncode(‘homeTeamId=158&schedule_Id=492462&flow=tmobile&venueId=32&season=2017’);
+desktop_url_string = uriEncode(‘http://purchase.tickets.com/buy/MLBEventInfo?orgid=4&agency=MLB&pid=8354011&tfl=Milwaukee_Brewers-Tickets-Single_Game_Tickets-na-x0');
+
+final_link = original_branch_link + ‘%24desktop_url=’ + desktop_url_string + ‘&%24deeplink_path’ + deeplink_path_string;

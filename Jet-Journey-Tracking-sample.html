@@ -1,0 +1,86 @@
+<html>
+	<head>
+		<script type="text/javascript">
+
+		 	// mParticle SDK
+		 	var mparticle_API_key = '48d4938acc0c5b4ba28f5b4988e55dd0';
+		 	window.console.log("mParticle Key:   " + mparticle_API_key);
+			(function (apiKey) {
+			    window.mParticle = window.mParticle || {};
+			    window.mParticle.config = window.mParticle.config || {};
+			    window.mParticle.config.rq = [];
+			    window.mParticle.ready = function (f) {
+			        window.mParticle.config.rq.push(f);
+			    };
+			    var mp = document.createElement('script');
+			    mp.type = 'text/javascript';
+			    mp.async = true;
+			    mp.src = ('https:' == document.location.protocol ? 'https://jssdkcdns' : 'http://jssdkcdn') + '.mparticle.com/js/v1/' + apiKey + '/mparticle.js';
+			    var s = document.getElementsByTagName('script')[0];
+			    s.parentNode.insertBefore(mp, s);
+			})(mparticle_API_key);
+
+			// mParticle Config - Below if for Testing/Non Production
+			window.mParticle = {
+			    config: {
+			        isSandbox: true // Remember to serve it locally so cross-origin JS can run: ```python -m SimpleHTTPServer```
+			    }
+			};
+
+			(function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent".split(" "), 0);
+			
+			var branch_API_key = 'key_test_cnbMci9l2NF6POM4YpJSTpipxqkjAcyG';
+			branch.init(branch_API_key, function(err, data) {
+		    	console.log(data);
+			});
+
+			branch.setBranchViewData({
+			  channel:'Mobile Web - Test',
+			  campaign: 'mParticle Listener Event Logging',
+			  data: {
+			    '$deeplink_path': 'search?category=26000000'
+			  }
+			});
+
+			// Branch listener with mParticle & Adobe Event logging.
+			var listener = function(event, data) { 
+				// Rename listener events to our own custom event names.
+				if (event == 'didShowJourney') {
+					event = 'Journey Impression';
+				} else if (event == 'didClickJourneyCTA') {
+					event = 'Journey CTA Click'
+				} else if (event == 'didClickJourneyClose') {
+					event = 'Journey Close'
+				};
+				
+				// Log event to mParticle.
+				console.log(event)
+				console.log(data)
+				window.mParticle.logEvent(event, mParticle.EventType.Navigation, data);
+
+				// Log event to Adobe.
+				s.clearVars();  // clears any prior variables.   Necessary due to timing of when things fire on PDP.
+				s.linkTrackVars = "campaign,contextData.campaign,contextData.channel,contextData.journey_variant";  // declares variables that will be set.  all variables have to be declared here to be set.
+					s.contextData["campaign"] = data.journey_link_data.campaign;  // sets context data about event.
+					s.contextData["channel"] = data.journey_link_data.channel;  // sets context data about event.
+					s.contextData["journey_variant"] = data.journey_link_data.tags[0]; // sets context data about event.
+					s.campaign = _satellite.getVar("all_pages_jcmp");  // sets marketing campaign data.  This will set automatically.
+				s.tl(this, "o", event);  // sets custom event name.
+			};
+ 
+			// Listen for Journey Impression
+			branch.addListener('didShowJourney', listener);
+			 
+			// Listen for Journey Click
+			branch.addListener('didClickJourneyCTA', listener);
+			 
+			// Listen for Journey Close
+			branch.addListener('didClickJourneyClose', listener);
+		</script>
+	</head>
+
+	<body>
+		<p>Test Journey should display above, acknowledging that the Branch SDK loaded the Journey. Click on different elements to test.</p>
+	</body>
+
+</html>

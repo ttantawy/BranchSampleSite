@@ -3,85 +3,150 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:description" content="some content here"/>
 <script src="js/jquery-2.1.4.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="branchsample.js"></script>
 <script type="text/javascript">
+(function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent logEvent".split(" "), 0);
+branch.init('key_test_fmx7E9zGvwRXTyPPJX603fakrzcT1Qvy', {metadata: {"is_logged_in":false,"is_member":false,"user_created_at":null,"medium_member_at":null,"post_topic_name":"Self","post_topic_slug":"self","post_publication_name":null,"post_publication_id":null,"layer_cake":2,"post_creator_name":"Fiona 'Short and Stout Teapot' Tea PARTY NEXT DOOR","post_creator_id":"bd175a427238","source":"Other","following_author":false,"following_pub":false,"following_topic":false,"meter_state":"not_metered","loaded":true}, 'no_journeys': false, 'disable_exit_animation': true, 'disable_entry_animation': true, 'tracking_disabled': false}, function(err, data) {});
 
-    (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode banner closeBanner creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode".split(" "), 0);
+var dataToSet = {'is_logged_in':false,'is_member':false,'user_created_at':null,'medium_member_at':null,'post_topic_name':"Self",'post_topic_slug':"self",'post_publication_name':null,'post_publication_id':null,'layer_cake':2,'post_creator_name':"Fiona 'Short and Stout Teapot' Tea PARTY NEXT DOOR",'post_creator_id':"bd175a427238",'source':"Other",'following_author':false,'following_pub':false,'following_topic':false,'meter_state':"not_metered",'loaded':true};
 
-    branch.init('key_live_hfBflnbiUgeSmTwa7W7jbiddzEdJgp6f', function(err, data) {
-        branch.banner(
-        {
-          icon: 'https://res.cloudinary.com/hrscywv4p/image/upload/c_limit,h_1440,w_720,f_auto/ecdl2ykvex3da5avzhz0.png',
-          title: 'Pixie Scientific',
-          description: 'App for Pixie Smart Pads!',
-          openAppButtonText: 'Open',
-          downloadAppButtonText: 'Get',
-          reviewCount: 1000,
-          rating: 5,
-          iframe: true,
-          showMobile: true,
-          showDesktop: true,
-          disableHide: false,
-          forgetHide: true
-        },
-        data
-      );
+branch.setBranchViewData({
+  data: dataToSet
+});
+  // var thisListener = function(event, data) { 
+  //     sendData(event, data);
+  // }
 
-      branch.deepview(
-      {
-        'channel': 'mobile_web',
-        'feature': 'deepview',
-        'campaign': 'uti_testing',
-        'stage': 'web_traffic_1',
-        data : {
-          '$fallback_url': 'https://www.pixiescientific.com/',
-          '$deeplink_path': 'page/1234',
-          'user_profile': '7890',
-          'page_id': '1234',
-          'custom_data': branch.data()
+  // branch.addListener('didShowJourney', thisListener); //A listener for a Journey impression
+  function sendData (event, data) {
+    // var journey_variation = data.journey_link_data.tags;
+    // var journey_id = data.journey_link_data.journey_id;
+    // var journey_name = data.journey_link_data.journey_name;
+    // // var userId = dataLayer.userId;
+    // var classpass_id = "FOO" //REPLACE "FOO" WITH YOUR ID
+
+    // console.log(journey_variation, journey_id, journey_name);
+
+    // var custom_data = {
+    //   "variation": journey_variation,
+    //   "journey_id": journey_id,
+    //   "journey_name": journey_name,
+    //   "classpass_id": classpass_id
+    // }
+    // branch.logEvent(
+    //   "homepage_view",
+    //   //custom_data,
+    //   function(err) { console.log(err);}
+    // );
+  };
+
+    // branch.addListener('didClickJourneyCTA', thisListener); //A listener for clicking the Journeys CTA
+    
+    // branch.addListener('didClickJourneyClose', thisListener); //A listener for someone manually dismissing the Journey
+    //key_live_gchnKkd3l3m9YBPP2d73jmfejkcgVjgM - BMF key
+    //key_live_hkDytPACtipny3N9XmnbZlapBDdj4WIL - New BMF key
+    //key_live_abDcx0UFBho6naQKnmo9EpbcyEf3JoPR - Barstool key
+    //key_live_fenZBMQl4jmbe0EIQUnypnnlFqcu285V - RtR key
+    //key_live_phe4Yf3W3FgoUKMeZTbBRkaevveeJq6e - ClassPass key
+    // if (isIpad) {
+    //   branch.init('key_live_gchnKkd3l3m9YBPP2d73jmfejkcgVjgM', {
+    //   'no_journeys': true
+    //   });
+    // } else {
+      // branch.init('key_live_hkDytPACtipny3N9XmnbZlapBDdj4WIL');
+
+    // }
+    //this is just a fake check for which page in the session the user is at
+    // if (window.history.length < 3) {
+    //   //if it's less than the critical number, show whatever regular banner should show
+    //   branch.track('pageview');
+    // } else {
+    //   //if it's past the critical number, show the specific full page interstitial
+    //   branch.track('pageview', null, {'branch_view_id': '394166450845042691'});
+    // }
+
+  function setTheData () {
+    console.log("setting");
+    branch.closeJourney();
+    branch.setBranchViewData({
+      
+      data: {
+        // '$deeplink_path': 'picture/00000',
+        // 'picture_id': '00000'
+        '~campaign': 'SetDataTest'
+      }
+    });
+  };
+
+  function buyEvent () {
+    console.log("buying");
+    var commerce_data = {"revenue":28.45,
+      "currency":"USD",
+      "transaction_id":"313299",
+      "shipping":5.95,
+      "tax":0,
+      //"~referring_link":"379998049730159899",
+      "products":[{"sku":"xbar1788","name":"SAFTB Golf Towel - GOLF / SAFTB","price":25,"quantity":1,"category":"","variant":"GOLF / SAFTB"}]
+    };
+    var metadata =  {};
+    branch.trackCommerceEvent('purchase', commerce_data, metadata, function(err) {
+        if(err) {
+             throw err;
         }
-      },
-      {
-        'open_app': true
-      });
-    });
-
-  function getDeeplink () {
-    $.ajax({
-      url: "https://api.branch.io/v1/url",
-      type: "POST",
-      headers: {
-          'Access-Control-Allow-Origin': '*'
-      },
-      data: {"branch_key":"key_live_hfBflnbiUgeSmTwa7W7jbiddzEdJgp6f"},
-      dataType: "JSONP",
-      contentType: "application/json",
-      success: onSuccess,
-      failure: onFailure,
-      complete: onComplete
     });
   };
+  function showJourney () {
+    console.log("showing");
+    // branch.init('key_live_gchnKkd3l3m9YBPP2d73jmfejkcgVjgM', function(err, data) {
+    //   branch.closeJourney(
+    //     function(err) { 
+    //       branch.track('pageview', null, {'branch_view_id': '411594526336324610'});
+    //       console.log(err); 
+    //     }
+    //   );
+      
+    // });
 
-  function onSuccess (data) {
-    $('.response').html(data["url"]);
+    console.log("page refreshing");
+    branch.closeJourney();
+    branch.setBranchViewData({
+      data: {
+        some_description: 'SetDataTest',
+        post_topic_name : 'Environment',
+        is_member : 'false'
+      }
+    });
+    branch.track('pageview', {
+      some_description: 'SetDataTest',
+      post_topic_name : 'Environment',
+      is_member : 'false'
+    })
   };
-
-  function onFailure (data) {
-    console.log("fail");
-  };
-
-  function onComplete (data){
-    console.log("done");
+  function setTheIdentity () {
+    console.log("setting the identity");
+    var timestamp = Math.round(+new Date()/1000);
+    var id = timestamp.toString();
+    branch.setIdentity(id, function (err, data) {
+      console.log(err, data);
+    });
+    console.log(document.cookie);
+    // var name = "identity_id";
+    // var value = "; " + document.cookie;
+    // var parts = value.split("; " + name + "=");
+    // var readID = "";
+    // if (parts.length == 2) {
+    //   var readID = parts.pop().split(";").shift();
+    // }
+    // console.log("readID = " + readID);
   };
 </script>
-<title>Pixie Scientific</title>
+<title>Tarek T</title>
 
 
 <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
 <link href="css/bootstrap.css" rel="stylesheet">
-<link href="branchsample.css" rel="stylesheet">
 
 </head>
 
@@ -90,26 +155,32 @@
 	<div class="container">
 
       <div class="row col-lg-8 col-lg-offset-2">
-      <h2>Pixie Scientific</h2>
+      <h2>Tarek's Test Site</h2>
     </div>
     <section>
       <div class="row col-lg-8 col-lg-offset-2">
         <div class="group">
-        <h4>Standard Deeplink</h4>
-          <button class="btn btn-info" onclick="branch.deepviewCta()">Go!</button>
+         <h4>Set Data</h4>
+          <button class="btn btn-info" onclick="setTheData()">Set</button>
         </div>
       </div>
-    </section>
-    <section>
       <div class="row col-lg-8 col-lg-offset-2">
         <div class="group">
-         <h4>Custom Deepview Link</h4>
-          <button class="btn btn-info" onclick="getDeeplink()">Generate</button>
+         <h4>Buy!</h4>
+          <button class="btn btn-info" onclick="sendData()">Buy</button>
         </div>
       </div>
       <div class="row col-lg-8 col-lg-offset-2">
-        <h5>Response:</h5>
-        <pre class="response">Click the button!</pre>
+        <div class="group">
+         <h4>Show the Journey</h4>
+          <button class="btn btn-info" onclick="showJourney()">Show Journey</button>
+        </div>
+      </div>
+      <div class="row col-lg-8 col-lg-offset-2">
+        <div class="group">
+         <h4>Set the Identity</h4>
+          <button class="btn btn-info" onclick="setTheIdentity()">Set Identity</button>
+        </div>
       </div>
     </section>
   </div>

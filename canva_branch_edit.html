@@ -1,0 +1,112 @@
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
+  function editTheLink () {
+    var url = document.getElementById('branch-link').value
+    if (url){
+      if (!/^https?:\/\//i.test(url)) {
+        url = 'https://' + url;
+      }
+      hideErrors();
+      getLinkData(url);
+    } else {
+      showError();
+    }
+  };
+
+  function getLinkData (theUrl) {
+    var apiUrl = "https://api.branch.io/v1/url?url=";
+    apiUrl += theUrl;
+    apiUrl += "&branch_key=key_live_bkfUUIaYKJyIRf5mQCYreaccrtdiXvB2";
+    $.get(
+      apiUrl,
+      {},
+      function(linkData) {
+        if (linkData.type == "2") {
+          var linkId = linkData.data["~id"];
+          redirectUser(linkId);
+        } else {
+          showMarketingError();
+        }
+      }
+    );
+  };
+
+  function redirectUser(linkId) {
+    var editPageUrl = "https://branch.dashboard.branch.io/quick-links/qlc/config/" + linkId;
+    window.open(editPageUrl, '_blank');
+  };
+
+  function showError(){
+    var errorElement = document.getElementById('error-alert');
+    errorElement.className += "fade show";
+  }
+
+  function showMarketingError(){
+    var errorElement = document.getElementById('error-marketing');
+    errorElement.className += "fade show";
+  }
+
+  function hideErrors(){
+    var errorElement = document.getElementById('error-alert');
+    errorElement.className += "fade hide";
+    var errorElement = document.getElementById('error-marketing');
+    errorElement.className += "fade hide";
+  }
+</script>
+<title>Go to the Branch Edit page</title>
+
+
+<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+<link href="css/bootstrap.css" rel="stylesheet">
+
+</head>
+<body>
+	<div class="container">
+      <div class="row col-lg-8 col-lg-offset-2">
+      <h2>Go to the Branch edit page</h2>
+    </div>
+    <section>
+      <div class="row col-lg-8 col-lg-offset-2">
+        <div class="group">
+          <h4>Link to edit:</h4>
+          <div class="input-group input-group-lg">
+            <span class="input-group-addon" id="sizing-addon1">Branch link:</span>
+            <input id="branch-link" type="text" class="form-control" placeholder="canva.me/logos" aria-describedby="sizing-addon1" value="canva.me/logos">
+          </div>
+          <br>
+          <button class="btn btn-info" onclick="editTheLink();">Go</button>
+        </div>
+        <br>
+        <div class="row col-lg-8 col-lg-offset-2" >
+          <div class="group">
+            <div id="error-alert" class="alert alert-danger alert-dismissible hide" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <strong>Oh snap!</strong> We couldn't find that Branch link.
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row col-lg-8 col-lg-offset-2" >
+          <div class="group">
+            <div id="error-marketing" class="alert alert-danger alert-dismissible hide" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <strong>Oh snap!</strong> It looks like that Branch link was not created in the dashboard so it is not possible to edit it on the dashboard.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+ </body>
+ </html>

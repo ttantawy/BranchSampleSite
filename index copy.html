@@ -1,0 +1,159 @@
+<html><head><style type="text/css" id="branch-css">@import url('https://fonts.googleapis.com/css?family=Satisfy');
+
+#branch-banner .branch-banner-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 18px;
+  line-height: 14px;
+  padding: 0px 2px 3px;
+  background-color: #000;
+  z-index: 2;
+}
+
+#branch-banner .branch-banner-description {
+  font-family: 'Helvetica Neue';
+  font-size: 10px;
+  color: white;
+  margin-bottom: 24px;
+  text-align: center;
+  padding: 0 10px;
+}
+
+#branch-banner .branch-banner-button {
+  border-radius: 4.5px;
+  background: #FFF;
+  color: #8B40AF;
+  font-size: 20px;
+  font-weight: bold;
+  display: none;
+  text-decoration: none;
+  padding: 10px 0;
+  text-align: center;
+  letter-spacing: 1.5px;
+  width: 90vw;
+  float: none;
+  overflow: hidden;
+}
+
+#branch-banner .branch-banner-content {
+  position: relative;
+  height: 100px;
+  width: 100vw;
+  overflow: hidden;
+  color: #FFFFFF;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url();
+  background: rgba(2, 0, 0, 1);
+}
+
+#branch-banner .branch-banner-content-box-bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 0px 0;
+  margin-bottom: 0px;
+}
+
+#branch-banner {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  margin: 0;
+  z-index: 99999;
+  font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.25s ease;
+  transition: all 00.25s ease;
+  line-height: normal;
+}
+
+@media only screen and (orientation: landscape) {
+  #branch-banner .branch-banner-content {
+    background-size: cover;
+  }
+
+  #branch-banner .branch-banner-content-box-bottom {
+    margin-top: 20vh !important;
+  }
+}
+
+body {
+  margin: 0;
+}</style></head><body><div data-id="1" id="branch-banner" class="branch-animation"><div data-id="2" class="branch-banner-content"><div data-id="3" class="branch-banner-close" id="branch-banner-close1" aria-label="Close App Launch Banner">×</div><div data-id="4" class="branch-banner-content-box-bottom"><div data-id="5" class="branch-banner-description" aria-label="App Download or Open Text line 2">$20 off $100+ will automatically be applied at checkout. Valid in the U.S. for purchases on UA.com and the UA Shop App. Expires 9/3.*</div><div data-id="6" id="branch-mobile-action" class="branch-banner-button" aria-label="App Download or Open Button">OPEN</div></div></div></div>
+
+
+
+<script type="text/javascript">function unescapeHtml(escaped_str) {
+    var div = document.createElement('div');
+    div.innerHTML = escaped_str;
+    var child = div.childNodes[0];
+    return child ? child.nodeValue : null;
+}
+
+function validateProtocol(url) {
+  var parser = document.createElement('a');
+    parser.href = url;
+    var protocol = parser.protocol.toLowerCase();
+  if (protocol !== 'javascript:' && protocol !== 'vbscript:') {
+    return url;
+  }
+  return null;
+}
+
+function validate(url) {
+  var unescaped_value = unescapeHtml(url);
+  if (unescaped_value && validateProtocol(unescaped_value)) {
+    return unescaped_value;
+  }
+  return '/';
+}
+
+(function(root) {
+var THRESHOLD = 5*1000;
+var last_called = null;
+
+var cta = function() {
+  var now = +new Date();
+  if ((last_called !== null) && (now - last_called < THRESHOLD)) {
+    return;
+  }
+  last_called = now;
+
+
+  // iframe_redirect
+  var branch_iframe = document.createElement('iframe');
+  branch_iframe.style.visibility = 'hidden';
+  branch_iframe.style.display = 'none';
+  document.body.appendChild(branch_iframe);
+
+  branch_iframe.src = validate("uashop://open?link_click_id=304639526182557279");
+  setTimeout(function() {
+    window.location = validate("https://uashop-alternate.app.link/r46ICcNUBF?__branch_flow_type=viewapp&amp;__branch_flow_id=425710096101168174&amp;__branch_mobile_deepview_type=4&amp;_branch_match_id=304639526182557279&amp;referrer=link_click_id%3D304639526182557279&amp;_t=304639526182557279");
+  }, 250);
+
+
+
+
+};
+
+
+
+
+
+  
+// callback_set
+if (typeof branch_view_callback__1 === 'function') {
+  branch_view_callback__1(cta);
+}
+  
+
+
+
+})(window);
+</script><script type="application/json">{"language":{"$journeys_button_get_has_app":"OPEN","$journeys_button_get_no_app":"GET","$journeys_description":"$20 off $100+ will automatically be applied at checkout. Valid in the U.S. for purchases on UA.com and the UA Shop App. Expires 9/3.*","$journeys_icon_image_url":"https://cdn.branch.io/branch-assets/1469135837653-icon.png","$journeys_title":"Title","$journeys_reviews":"(1,345)"},"ctaText":{"has_app":"OPEN","no_app":"GET"},"bannerHeight":"100px","dismissPeriod":7,"position":"top","injectorSelector":".branch-journeys-top","sticky":"absolute"}</script></body></html>
